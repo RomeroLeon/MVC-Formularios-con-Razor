@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-left">
+    <h1 class="display-4">Helpers</h1>
+    <p></p>
+</div>
+<div>
+    Nombre de Usuario:
+    @Html.TextBox("txtUsername", "ej: Miguel León", new{@class="form-control"})
+</div>
+
+<div>
+    Password:
+    @Html.Password("Contrasena", "",new {@class="form-control"})
+</div>
+
+<br/>
+
+<div>
+    Genero:
+    @Html.RadioButton("Genero", "masculino", true, new{id="masculino"})
+    Masculino
+    @Html.RadioButton("Genero", "Femenino", false, new{id="femenino"})
+    Femenino
+</div>
+
+<br />
+
+<div>
+    Address:
+    @Html.TextArea("Direccion", "Ingrese su dirección", new{@class="form-control", id="idDireccion"})
+</div>
+
+<br />
+
+<div>
+    Pasa Tiempos:<br />
+    bailando:
+    @Html.CheckBox("bailando")<br />
+    Caminando:
+    @Html.CheckBox("caminando", true)<br />
+    peliculas:
+    @Html.CheckBox("peliculas")<br />
+    escalar:
+    @Html.CheckBox("escalar")<br />
+</div>
+
+<br>
+
+<div>
+    Cursos:
+    @{
+        IEnumerable<string> strList = new List<string> { "POO", "TW", "MAT3", "FIS1" };
+    }
+    @Html.DropDownList("ddlCurso", new SelectList(strList, strList.FirstOrDefault()), "--Seleccionar Curso---")
+</div>
+<br />
+<div>
+    Conocimientos:
+    @Html.ListBox("Seleccionar habilidades", new List<SelectListItem>{
+    new SelectListItem{Text= "C#", Value ="1"},
+    new SelectListItem{Text= "ASP.NET", Value="2"},
+    new SelectListItem{Text= "ASP.NET core", Value="3"},
+    new SelectListItem{Text= "Azure", Value="4"}
+    })
+</div>
+
+<div>
+    <button type="button" class="btn btn-success">Enviar Datos</button>
+
+</div>
